@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  var timerStart = Date.now();
+</script>
 
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -34,27 +37,41 @@
   <script src="js/ThrowPropsPlugin.min.js"></script>
   <script src="js/TweenLite.min.js"></script>
 
+  <noscript>
+    <style type="text/css">
+        #logo-container {
+          display: block;
+          opacity: 1;
+        }
+    </style>
+  </noscript>
+
 
 
 
 </head>
 <body>
   <div id="boundaries">
-    <!-- Primary Page Layout
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <!--<div class="focus">
-      <img class="drag focus-items" id="interaction" src="images/interaction.svg">
-      <img class="drag focus-items" id="print" src="images/print.svg">
-      <img class="drag focus-items" id="motion" src="images/motion.svg">
-    <div>-->
-    <div id="logo-container">
-      <img id="logo" src="images/logo.svg" onmousedown="event.preventDefault ? event.preventDefault() : event.returnValue = false">
-      <img class="drag logo-items" id="s2" src="images/2.svg">
-      <img class="drag logo-items" id="s3" src="images/3.svg">
-      <img class="drag logo-items" id="s4" src="images/4.svg">
-      <img class="drag logo-items" id="s5" src="images/5.svg">
-      <img class="drag logo-items" id="s6" src="images/6.svg">
-      <img class="drag logo-items" id="s7" src="images/7.svg">
+
+    <div id="animation_container">
+      <img id="loading" src="images/loading.gif">
+      <img id="lightbulb" src="images/empty.png">
+
+      <div class="logo_ratio">
+        <div id="logo">
+          <img class="letters" id="g" src="images/g.svg">
+          <img class="letters" id="r" src="images/r.svg">
+          <img class="letters" id="c" src="images/c.svg">
+          <img class="letters" id="d" src="images/d.svg">
+
+          <img class="drag logo-items" id="s2" src="images/2.svg">
+          <img class="drag logo-items" id="s3" src="images/3.svg">
+          <img class="drag logo-items" id="s4" src="images/4.svg">
+          <img class="drag logo-items" id="s5" src="images/5.svg">
+          <img class="drag logo-items" id="s6" src="images/6.svg">
+          <img class="drag logo-items" id="s7" src="images/7.svg">
+        </div>
+      </div>
     <div>
   </div>
 

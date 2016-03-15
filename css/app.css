@@ -27,10 +27,9 @@
 
 #lightbulb {
 	position: absolute;
-	width: 100%;
-	max-width: 1080px;
-	top: 50%;
-	left: 50%;
+	width: 109%;
+	top: 64%;
+	left: 52.5%;
 	transform: translate(-50%, -50%);
 	-webkit-transform: translate(-50%, -50%);
 }
@@ -58,7 +57,7 @@
   display: block;
   content: "";
   width: 100%;
-  padding-top: 26.4%;
+  padding-top: 23%;
 }
 
 #logo {
@@ -75,8 +74,9 @@
 }
 
 .letters {
+	position: absolute;
 	height: 100%;
-	display: inline;
+	display: block;
 	transform: rotate(-45deg) scale(0,0);
 	-webkit-transform: rotate(-45deg) scale(0,0);
 	transform-origin: bottom right;
@@ -95,40 +95,50 @@
 	-webkit-transform-origin: bottom right;
 }
 
+#r {
+	left: 27%;
+}
+#c {
+	right: 29%;
+}
+#d {
+	right: 0;
+}
+
 
 #s2 {
-	top: 12%;
-	left: 55%;
-	width: 8%;
+	top: 20%;
+	left: 55.7%;
+	width: 14%;
 }
 #s3 {
-	top: 13%;
-	left: 4%;
-	width: 7%;
+	top: 22%;
+	left: 4.5%;
+	width: 6.5%;
 }
 
 #s4 {
-	top: 5.8%;
-	left: 28.4%;
-	width: 8%;
+	top: 59%;
+	left: 28%;
+	width: 8.5%;
 }
 
 #s5 {
 	top: 3.9%;
-	left: 77%;
-	width: 9.5%;
-}
-
-#s6 {
-	top: 9.5%;
-	left: 33.2%;
+	left: 78%;
 	width: 10%;
 }
 
+#s6 {
+	top: 15%;
+	left: 33.5%;
+	width: 9.7%;
+}
+
 #s7 {
-	top: 5.5%;
-	left: 83.5%;
-	width: 7%;
+	top: 35.5%;
+	left: 85.3%;
+	width: 6.5%;
 }
 
 .drag {
@@ -138,7 +148,11 @@
 }
 
 .drag:hover {
-	cursor: pointer;
+	opacity: .7;
+}
+
+.drag:active {
+	opacity: 1;
 }
 
 #boundaries {
@@ -148,5 +162,12 @@
 	height: 100vh;
 	width: 100vw;
 	overflow: hidden;
+}
+
+
+#e1 {
+	top: 20%;
+	left: 20%;
+	width: 2%;
 }
 

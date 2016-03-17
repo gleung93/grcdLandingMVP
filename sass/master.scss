@@ -1,20 +1,108 @@
+@import "type";
 @import "floatingElements";
 
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+
+}
+
 #boundaries {
-	position: relative;
+	position: fixed;
 	top: 0;
 	left: 0;
-	height: 100vh;
-	width: 100vw;
+	right: 0;
+	bottom: 0;
 	overflow: hidden;
+	z-index: 99;
 }
+.content-container {
+	width: 960px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 99;
+}
+
+.text-container {
+	position: relative;
+	width: 100%;
+	margin-top: 15%;
+	opacity: 0;
+	-ms-transform: translateY(-25px);
+	-webkit-transform: translateY(-25px);
+	transition: all 1.3s;
+	-webkit-transition: all 1.3s;
+	-webkit-transition-timing-function: easeInOutQuint;
+	transition-timing-function: easeInOutQuint;
+}
+
+.text-container.active {
+	opacity: 1;
+	-ms-transform: translateY(0px);
+	-webkit-transform: translateY(0px);
+}
+
+.column {
+	float: left;
+	position: relative;
+	width: 33.33%;
+	padding-right: 20px;
+}
+
+.column:last-of-type {
+	padding-right: 0px;
+}
+
+@media only screen and (max-width: 960px) {
+	body .content-container {
+		width: 75%;
+		padding: 0 15px;
+	}
+
+	body .logo_ratio {
+		width: 100%;
+	}
+
+	body #daap {
+		width: 100%;
+	}
+	body .column {
+		float: left;
+		width: 50%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	body .content-container {
+		width: 100%;
+		padding: 0 15px;
+	}
+
+	body .logo_ratio {
+		width: 100%;
+	}
+
+	body #daap {
+		width: 100%;
+	}
+	body .column {
+		float: left;
+		width: 100%;
+	}
+}
+
 
 .logo_ratio {
   position: relative;
   width: 75%;
-  max-width: 700px;
   margin: auto;
-  top: 38%;
+  /*top: 38%;*/
 }
 
 .logo_ratio:before {
@@ -22,6 +110,24 @@
   content: "";
   width: 100%;
   padding-top: 23%;
+}
+
+#daap {
+	position: relative;;
+	width: 75%;
+	display: block;
+	margin: 3% auto;
+	transform: scale(1,0);
+	-webkit-transform: scale(1,0);
+	transition: all .5s;
+	-webkit-transition: all .5s;
+	-webkit-transition-timing-function: easeInOutQuint;
+	transition-timing-function: easeInOutQuint;
+}
+
+#daap.active {
+	transform: scale(1,1);
+	-webkit-transform: scale(1,1);
 }
 
 #logo-container {
@@ -86,6 +192,9 @@
 .floating-items {
 	position: absolute;
 	display: none;
+	opacity: 0;
+	transition: opacity .4s;
+	-webkit-transition: opacity .4s;
 }
 
 .floatwrap {
@@ -104,6 +213,7 @@
 	display: none;
 	height: 100%;
 	display: block;
+	-webkit-user-drag: none;
 	transform: rotate(-45deg) scale(0,0);
 	-webkit-transform: rotate(-45deg) scale(0,0);
 	transform-origin: bottom right;
@@ -130,25 +240,6 @@
 }
 #d {
 	right: 0;
-}
-
-#daap {
-	position: absolute;
-	width: 100%;
-	display: block;
-	left: 0;
-	bottom: -45%;
-	transform: scale(1,0);
-	-webkit-transform: scale(1,0);
-	transition: all .5s;
-	-webkit-transition: all .5s;
-	-webkit-transition-timing-function: easeInOutQuint;
-	transition-timing-function: easeInOutQuint;
-}
-
-#daap.active {
-	transform: scale(1,1);
-	-webkit-transform: scale(1,1);
 }
 
 

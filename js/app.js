@@ -36,6 +36,7 @@ if (isMobile == false) {
         $("#c").delay(1060).queue(function(){$("#c").addClass('active')});
         $("#d").delay(1090).queue(function(){$("#d").addClass('active')});
         $("#daap").delay(1090).queue(function(){$("#daap").addClass('active')});
+        $("#dateAndTime").delay(1090).queue(function(){$("#dateAndTime").addClass('active')});
         //$(".drag").delay(2700).fadeTo(1, 1);
         $(".drag").delay(3810).queue(function(){$(".drag").css("display","block")});
         $(".floating-items").wrap("<div class='floatWrap'></div>");

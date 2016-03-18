@@ -8,6 +8,22 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		concat: {
+			options: {
+				separator: ';',
+			},
+			dist: {
+				src: ['js/jquery-2.2.1.min.js', 'js/CSSPlugin.min.js', 'js/Draggable.js','js/ThrowPropsPlugin.min.js', 'js/TweenLite.min.js'],
+				dest: 'js/plugins.js',
+			},
+		},
+		uglify: {
+    	my_target: {
+      	files: {
+        	'js/plugins.min.js': ['js/plugins.js']
+      	}
+    	}
+  	},
 		watch: {
 			css: {
 				files: '**/*.scss',
@@ -17,5 +33,7 @@ module.exports = function(grunt) {
 	});
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.registerTask('default',['watch']);
 }

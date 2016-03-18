@@ -30,10 +30,7 @@
 
   <!-- External JS -->
   <script src="js/jquery-2.2.1.min.js"></script>
-  <script src="js/CSSPlugin.min.js"></script>
-  <script src="js/Draggable.min.js"></script>
-  <script src="js/ThrowPropsPlugin.min.js"></script>
-  <script src="js/TweenLite.min.js"></script>
+  <script src="js/plugins.min.js"></script>>
 
   <noscript>
     <style type="text/css">
@@ -54,24 +51,63 @@
 <body>
   <div id="boundaries">
     <!--Floating elements-->
-    <img class="drag floating-items" id="i1" src="images/icons/interaction1.svg">
-    <img class="drag floating-items" id="i2" src="images/icons/interaction2.svg">
-    <img class="drag floating-items" id="i4" src="images/icons/interaction4.svg">
-    <img class="drag floating-items" id="i5" src="images/icons/interaction5.svg">
-    <img class="drag floating-items" id="i6" src="images/icons/interaction6.svg">
-    <img class="drag floating-items" id="i7" src="images/icons/interaction7.svg">
-    <img class="drag floating-items" id="m1" src="images/icons/motion1.svg">
-    <img class="drag floating-items" id="m3" src="images/icons/motion3.svg">
-    <img class="drag floating-items" id="m4" src="images/icons/motion4.svg">
-    <img class="drag floating-items" id="m5" src="images/icons/motion5.svg">
-    <img class="drag floating-items" id="m6" src="images/icons/motion6.svg">
-    <img class="drag floating-items" id="m7" src="images/icons/motion7.svg">
-    <img class="drag floating-items" id="m8" src="images/icons/motion8.svg">
-    <img class="drag floating-items" id="p2" src="images/icons/print2.svg">
-    <img class="drag floating-items" id="p3" src="images/icons/print3.svg">
+    <div id="floater_container">
+      <div class="drag floating-items" id="i1"><img src="images/icons/interaction1.svg"></div>
+      <div class="drag floating-items" id="i2"><img src="images/icons/interaction2.svg"></div>
+      <div class="drag floating-items" id="i3"><img src="images/icons/interaction3.svg"></div>
+      <div class="drag floating-items" id="i4"><img src="images/icons/interaction4.svg"></div>
+      <div class="drag floating-items" id="i5"><img src="images/icons/interaction5.svg"></div>
+      <div class="drag floating-items" id="i6"><img src="images/icons/interaction6.svg"></div>
+      <div class="drag floating-items" id="i7"><img src="images/icons/interaction7.svg"></div>
+      <div class="drag floating-items" id="m1"><img src="images/icons/motion1.svg"></div>
+      <!--<div class="drag floating-items" id="m2" src="images/icons/motion2.svg">-->
+      <div class="drag floating-items" id="m2-1"><img src="images/icons/motion2.1.svg"></div>
+      <div class="drag floating-items" id="m2-2"><img src="images/icons/motion2.2.svg"></div>
+      <div class="drag floating-items" id="m3"><img src="images/icons/motion3.svg"></div>
+      <!--<div class="drag floating-items" id="m4" src="images/icons/motion4.svg">-->
+      <div class="drag floating-items" id="m4-1"><img src="images/icons/motion4.1.svg"></div>
+      <div class="drag floating-items" id="m4-2"><img src="images/icons/motion4.2.svg"></div>
+      <div class="drag floating-items" id="m4-3"><img src="images/icons/motion4.3.svg"></div>
+      <div class="drag floating-items" id="m5"><img src="images/icons/motion5.svg"></div>
+      <div class="drag floating-items" id="m6"><img src="images/icons/motion6.svg"></div>
+      <div class="drag floating-items" id="m7"><img src="images/icons/motion7.svg"></div>
+      <div class="drag floating-items" id="m8"><img src="images/icons/motion8.svg"></div>
+      <div class="drag floating-items" id="p1"><img src="images/icons/print1.svg"></div>
+      <div class="drag floating-items" id="p2"><img src="images/icons/print2.svg"></div>
+      <div class="drag floating-items" id="p3"><img src="images/icons/print3.svg"></div>
+      <div class="drag floating-items" id="p4"><img src="images/icons/print4.svg"></div>
+      <!--<div class="drag floating-items" id="p5" src="images/icons/print5.svg">-->
+      <div class="drag floating-items" id="p5-1"><img src="images/icons/print5.1.svg"></div>
+      <div class="drag floating-items" id="p5-2"><img src="images/icons/print5.2.svg"></div>
+      <div class="drag floating-items" id="p5-3"><img src="images/icons/print5.3.svg"></div>
+      <div class="drag floating-items" id="p6"><img src="images/icons/print6.svg"></div>
+      <!--< class="drag floating-items" id="p7" src="images/icons/print7.svg">-->
+      <div class="drag floating-items" id="p7-1"><img src="images/icons/print7.1.svg"></div>
+      <div class="drag floating-items" id="p7-2"><img src="images/icons/print7.2.svg"></div>
+      <div class="drag floating-items" id="o1"><img src="images/icons/others1.svg"></div>
+      <div class="drag floating-items" id="o2"><img src="images/icons/others2.svg"></div>
+      <!--<div class="drag floating-items" id="o3" src="images/icons/others3.svg">-->
+      <div class="drag floating-items" id="o3-1"><img src="images/icons/others3.1.svg"></div>
+      <div class="drag floating-items" id="o3-2"><img src="images/icons/others3.2.svg"></div>
+      <div class="drag floating-items" id="o3-3"><img src="images/icons/others3.3.svg"></div>
+      <!--<div class="drag floating-items" id="o4" src="images/icons/others4.svg">-->
+      <div class="drag floating-items" id="o4-1"><img src="images/icons/others4.1.svg"></div>
+      <div class="drag floating-items" id="o4-2"><img src="images/icons/others4.2.svg"></div>
+      <div class="drag floating-items" id="o4-3"><img src="images/icons/others4.3.svg"></div>
+      <div class="drag floating-items" id="o4-4"><img src="images/icons/others4.4.svg"></div>
+      <div class="drag floating-items" id="o4-5"><img src="images/icons/others4.5.svg"></div>
+      <div class="drag floating-items" id="o4-6"><img src="images/icons/others4.6.svg"></div>
+      <div class="drag floating-items" id="o5"><img src="images/icons/others5.svg"></div>
+      <!--<div class="drag floating-items" id="o6" src="images/icons/others6.svg">-->
+      <div class="drag floating-items" id="o6-1"><img src="images/icons/others6.1.svg"></div>
+      <div class="drag floating-items" id="o6-2"><img src="images/icons/others6.2.svg"></div>
+      <div class="drag floating-items" id="o6-3"><img src="images/icons/others6.3.svg"></div>
+      <div class="drag floating-items" id="o6-4"><img src="images/icons/others6.4.svg"></div>
+      <div class="drag floating-items" id="o7"><img src="images/icons/others7.svg"></div>
   </div>
 
-    <div class="content-container">
+
+  <div class="content-container">
 
       <div class="logo_ratio">
         <div id="logo">
@@ -92,7 +128,9 @@
         </div>
     </div>
 
-    <img id="daap" src="images/daapworks.svg">
+    <div id=bugfix>
+      <img id="daap" src="images/daapworks.svg">
+    </div>
 
 
       <div class="text-container">
@@ -104,16 +142,28 @@
             <p>April 28 (5pm-9pm)<br>April 29-May 1 (9am-9pm)<br>May 2 (10am-1pm)<br>Free admission & refreshments</p>
           </div>
           <div class="column">
-            <p>DAAP Aronoff Building<br>2624 Clifton Avenue<br>Cincinnati, OH 45219</p>
+            <p><a target="_blank" href="http://maps.google.com/?q=DAAP Aronoff Building 2624 Clifton Avenue Cincinnati, OH 45219">DAAP Aronoff Building<br>2624 Clifton Avenue<br>Cincinnati, OH 45219</a></p>
           </div>
       </div>
       <div style="clear:both"></div>
 
-    </div>
+
+  </div>
+  </div>
 
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <script src="js/app.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75296527-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </body>
 </html>

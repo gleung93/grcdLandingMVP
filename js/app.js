@@ -8,6 +8,10 @@ if (isMobile == true) {
 	$("#loading").hide();
 	$(".letters").addClass('active');
 	$(".logo-items").show(500);
+  $(".text-container").addClass('active');
+  $("#daap").addClass('active');
+  //$(".floating-items").find("img").addClass("active");
+  startPoping();
 }
 
 //For desktop
@@ -38,27 +42,93 @@ if (isMobile == false) {
         $("#daap").delay(1090).queue(function(){$("#daap").addClass('active')});
         $(".text-container").delay(1090).queue(function(){$(".text-container").addClass('active')});
         //$(".drag").delay(2700).fadeTo(1, 1);
-        $(".drag").delay(3810).queue(function(){$(".drag").css("display","block")});
-        //$(".floating-items").wrap("<div class='floatWrap'></div>");
-	    });
+        $(".drag").delay(3810).queue(function(){
+          $(".drag").css("display","block");
+          $("#lightbulb").remove();
+          $("#daap").addClass('bugfix');
+          startPoping();
+        });
+	    });//end animate in
 
-      //Other
+
+      //Animate in on mouse over
       $(".floating-items").mouseenter(function(){
-        $(this).css("opacity", "1");
+        $(this).find("img").addClass("active");
       });
-	});
+
+	});//end Window on Load
+}//end is mobile
+
+//Random Array Generator
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+//randomize array of floaters
+var floaterArray = $(".floating-items").toArray();
+shuffle(floaterArray);
+
+//Delay animate in
+function startPoping(){
+  console.log("startPoping");
+  $(floaterArray).each(function(index){
+    var self = this
+    setTimeout(function () {
+          console.log("pop");
+          $(self).find("img").addClass("active");
+    }, index*5000);
+  });
 }
 
 
-//Fallbacks
+//**************Fallbacks****************
+
+//if blendmode is not support
 if(typeof window.getComputedStyle(document.body).mixBlendMode == 'undefined') {
-    alert("noblend!");
+    $(".drag").css("mix-blend-mode", "initial");
+}
+
+//IF firefox. There is a bug here
+var FF = !(window.mozInnerScreenX == null);
+if(FF) {
+    $(".drag").css("mix-blend-mode", "initial");
+    $(".letters").css("z-index", "2000");
+    $(".letters").draggable = false;
+} else {
+    // not firefox
 }
 
 //Height Query
 var content = $(".content-container").height();
 var win = $(window).height();
 
+//So that users can scoll to see the content
 if (content > win ) {
-    alert("who does this?");
+    $(".content-container").addClass("short");
 }
+
+//height on resize
+$(window).resize(function(){
+  var content = $(".content-container").height();
+  var win = $(window).height();
+  if (content > win ) {
+      $(".content-container").addClass("short");
+  } else {
+      $(".content-container").removeClass("short");
+  }
+});

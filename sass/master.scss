@@ -1,0 +1,455 @@
+@import "type";
+@import "floatingElements";
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin prefix($map, $vendors: webkit moz ms o) {
+  @each $prop, $value in $map {
+        @if $vendors {
+          @each $vendor in $vendors {
+            #{"-" + $vendor + "-" + $prop}: #{$value};
+          }
+        }
+        // Dump regular property anyway
+        #{$prop}: #{$value};
+  }
+}
+
+#boundaries {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+}
+.content-container {
+	width: 960px;
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	@include prefix((transform: translate(-50%, -50%)), webkit ms);
+}
+
+.content-container.short {
+	position: relative;
+	margin: 30px auto;
+	top: auto;
+	left: auto;
+	@include prefix((transform: translate(0, 0)), webkit ms);
+
+}
+
+.text-container {
+	position: relative;
+	width: 100%;
+	padding-left: 10%;
+	margin-top: 15%;
+	box-sizing: border-box;
+	opacity: 0;
+	@include prefix((
+    transform: translateY(-25px),
+    transition: all 1.3s,
+		transition-timing-function: easeInOutQuint
+  ), webkit ms);
+}
+
+.text-container.active {
+	opacity: 1;
+	@include prefix((transform: translateY(0px)), webkit ms);
+}
+
+.column {
+	float: left;
+	position: relative;
+	width: 33.33%;
+	padding-right: 20px;
+}
+
+.column:last-of-type {
+	padding-right: 0px;
+}
+
+/*@media only screen and (max-width: 960px) {
+	body .content-container {
+		width: 75%;
+		padding: 0 15px;
+	}
+
+	body .logo_ratio {
+		width: 100%;
+	}
+
+	body #bugfix {
+		width: 100%;
+	}
+	body .column {
+		float: left;
+		width: 50%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	body #boundaries .content-container {
+		width: 100%;
+		padding: 0 15px;
+	}
+
+	body .logo_ratio {
+		width: 100%;
+	}
+
+	body #bugfix {
+		width: 100%;
+	}
+	body .column {
+		float: left;
+		width: 100%;
+	}
+}*/
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (max-width : 1200px) {
+    	body .content-container {
+		width: 75%;
+		padding: 0 15px;
+		}
+
+		body .logo_ratio {
+			width: 100%;
+		}
+
+		body #bugfix {
+			width: 100%;
+		}
+		body .column {
+			float: left;
+			width: 50%;
+		}
+		
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (max-width : 992px) {
+    	body .content-container {
+		width: 75%;
+		padding: 0 15px;
+		}
+
+		body .logo_ratio {
+			width: 100%;
+		}
+
+		#boundaries{
+			overflow-y: scroll !important;
+  			-webkit-overflow-scrolling: touch;
+		}
+
+		body #bugfix {
+			width: 100%;
+		}
+		body .column {
+			float: left;
+			width: 50%;
+		}
+		
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (max-width : 768px) {
+    	body #boundaries .content-container {
+		width: 100%;
+		padding: 0 15px;
+		overflow: scroll !important;
+		}
+
+		#boundaries{
+			overflow-y: scroll !important;
+  			-webkit-overflow-scrolling: touch;
+		}
+
+		body .logo_ratio {
+			width: 100%;
+		}
+
+		body #bugfix {
+			width: 100%;
+		}
+		body .column {
+			/*left: 20%;*/
+			float: left;
+			width: 100%;
+
+		}
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (max-width : 480px) {
+    	body #boundaries .content-container {
+		width: 100%;
+		padding: 0 15px;
+		overflow: scroll !important;
+		}
+
+		#boundaries{
+			overflow-y: scroll !important;
+  			-webkit-overflow-scrolling: touch;
+		}
+
+		body .logo_ratio {
+			width: 100%;
+		}
+
+		body #bugfix {
+			width: 100%;
+		}
+		body .column {
+			float: left;
+			width: 100%;
+		}
+
+    }
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (max-width : 320px) {
+       body #boundaries .content-container {
+		width: 100%;
+		padding: 0 15px;
+		overflow: scroll !important;
+		}
+
+		#boundaries{
+			overflow-y: scroll !important;
+  			-webkit-overflow-scrolling: touch;
+		}
+
+		body .logo_ratio {
+			width: 100%;
+		}
+
+		body #bugfix {
+			width: 100%;
+		}
+		body .column {
+			float: left;
+			width: 100%;
+		}
+ 
+    }
+
+.logo_ratio {
+  position: relative;
+  width: 75%;
+  margin: auto;
+}
+
+.logo_ratio:before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 23%;
+}
+
+#bugfix {
+	width: 75%;
+	margin: auto;
+}
+
+#daap {
+	position: relative;;
+	width: 100%;
+	display: block;
+	margin-top: 3%;
+	margin-bottom: 3%;
+	margin-left: auto;
+	margin-right: auto;
+	-webkit-user-drag: none;
+	@include prefix((
+		transform: scale(1,0),
+		transition: all .5s,
+		transition-timing-function: easeInOutQuint
+	), webkit ms);
+}
+
+#daap.active {
+	@include prefix((
+		transform: scale(1,1)
+	));
+}
+
+#daap.bugfix {
+		-webkit-transform: scale(1.0001,1.0001)
+}
+
+#logo-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	@include prefix((
+		translate(-45%, -50%)
+	), webkit ms);
+}
+
+#logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  white-space: nowrap;
+}
+
+#loading {
+	position: absolute;
+  top: 50%;
+	left: 50%;
+	@include prefix((
+		transform: translate(-50%, -50%) scale(1),
+		transition: all .2s,
+		transition-timing-function: ease-in
+	), webkit ms);
+}
+
+/*maybe use keyframes to make it grow before it shrinks*/
+.scale-out {
+	@include prefix((
+		transform: translate(-50%, -50%) scale(0),
+	), webkit ms);
+}
+
+#lightbulb {
+	position: absolute;
+	width: 109%;
+	top: 64%;
+	left: 52.5%;
+	@include prefix((
+		transform: translate(-50%, -50%),
+	), webkit ms);
+}
+
+#logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  white-space: nowrap;
+}
+
+.logo-items {
+	position: absolute;
+	display: none;
+}
+
+.floating-items {
+	position: absolute;
+	display: none;
+	opacity: 1;
+	transition: opacity .4s;
+	-webkit-transition: opacity .4s;
+}
+
+.floating-items img {
+	position: relative;
+	@include prefix((
+		transform: scale(0,0),
+		transition: transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+	), webkit ms);
+}
+
+.floating-items img.active {
+	@include prefix((
+		transform: scale(1,1)
+	), webkit ms);
+}
+
+.letters {
+	position: absolute;
+	display: none;
+	height: 100%;
+	display: block;
+	-webkit-user-drag: none;
+	@include prefix((
+		transform: rotate(-45deg) scale(0,0),
+		transform-origin: bottom right,
+		transition: all .4s,
+		transition-timing-function: easeInOutQuint
+	), webkit ms);
+}
+
+
+.letters.active {
+	@include prefix((
+		transform: rotate(0deg) scale(1,1),
+		transform-origin: bottom right
+	), webkit ms);
+}
+
+#r {
+	left: 27%;
+}
+#c {
+	right: 29%;
+}
+#d {
+	right: 0;
+}
+
+
+
+#s2 {
+	top: 20%;
+	left: 55.7%;
+	width: 14%;
+}
+#s3 {
+	top: 22%;
+	left: 4.5%;
+	width: 6.5%;
+}
+
+#s4 {
+	top: 59%;
+	left: 28%;
+	width: 8.5%;
+}
+
+#s5 {
+	top: 3.9%;
+	left: 78%;
+	width: 10%;
+}
+
+#s6 {
+	top: 15%;
+	left: 33.5%;
+	width: 9.7%;
+}
+
+#s7 {
+	top: 35.5%;
+	left: 85.3%;
+	width: 6.5%;
+}
+
+#s8 {
+	top: 20%;
+	left: 20%;
+	width: 6.5%;
+}
+
+.drag {
+	mix-blend-mode: multiply;
+}
+
+.drag:hover {
+	opacity: .7;
+}
+
+.drag:active {
+	opacity: 1;
+}

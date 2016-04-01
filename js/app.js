@@ -91,7 +91,7 @@ function startPoping(){
     setTimeout(function () {
           console.log("pop");
           $(self).find("img").addClass("active");
-    }, index*10);// (originally 5000)
+    }, index*2000);// (originally 5000)
   });
 }
 
